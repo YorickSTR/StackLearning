@@ -2,36 +2,31 @@ import * as React from "react";
 import { View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import styled from "styled-components";
-import BmiCalculator from "./components/BmiCalculator";
-const Stack = createNativeStackNavigator();
+import styled from "styled-components/native";
+
 const Drawer = createDrawerNavigator();
 
 export default function App({ navigation, route }) {
-  let name = route.params.name;
   function Profile() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Welcome, {name}</Text>
+      <View>
+        <DivSTR>
+          <Title>Welcome, Guest.</Title>
+          <SubTextA>
+            Because you're not registered you can't use our tools.
+          </SubTextA>
+          <TitleA margin>What do we offer?</TitleA>
+          <TitleB margin> -BMI Calculator</TitleB>
+          <SubText>See if you have a healthy weight.</SubText>
+        </DivSTR>
       </View>
     );
   }
 
   function MyInfo() {
     return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Name: {name}</Text>
-      </View>
-    );
-  }
-
-  function Tools() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <DivSTR>
-          <TitleB>Welcome, user.</TitleB>
-        </DivSTR>
+      <View>
+        <Text>You don't have saved info since you don't have an account.</Text>
       </View>
     );
   }
@@ -39,11 +34,9 @@ export default function App({ navigation, route }) {
     <Drawer.Navigator useLegacyImplementation>
       <Drawer.Screen name="Profile" component={Profile} />
       <Drawer.Screen name="My Info" component={MyInfo} />
-      <Drawer.Screen name="Tools" component={Tools} />
     </Drawer.Navigator>
   );
 }
-
 const Title = styled.Text`
   font-size: 30px;
   font-weight: 200;

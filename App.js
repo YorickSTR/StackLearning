@@ -6,7 +6,7 @@ const Stack = createNativeStackNavigator();
 
 import HomeScreen from "./screens/HomeScreen";
 import LoggedInScreen from "./screens/LoggedInScreen";
-import SignUpScreen from "./screens/SignUpScreen";
+import GuestScreen from "./screens/GuestScreen";
 
 export default function App() {
   return (
@@ -23,9 +23,9 @@ export default function App() {
           options={{ title: "Welcome" }}
         />
         <Stack.Screen
-          name="SignUp"
-          component={SignUpScreen}
-          options={{ title: "Sign Up" }}
+          name="UseGuest"
+          component={GuestScreen}
+          options={{ title: "Logged in as Guest" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
